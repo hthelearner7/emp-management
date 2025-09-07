@@ -1,6 +1,9 @@
 const AllTasks = () => {
     return (
-        <div className="h-48 rounded bg-gray-700 p-4">
+        <div className="rounded bg-gray-700 p-4 space-y-4">
+            <h1 className="text-center text-2xl font-semibold mb-6">
+                All Tasks
+            </h1>
             <div className="bg-red-400 p-4 flex justify-between rounded">
                 <h2>abcname</h2>
                 <h3>Make UI Design</h3>
