@@ -1,12 +1,11 @@
 import React, { useState } from "react";
 
-const Login = () => {
+const Login = ({ handleLogin }) => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
     const submitHandler = (e) => {
-        console.log("value of email is ", email);
-        console.log("value of password is ", password);
+        handleLogin(email, password);
         setEmail("");
         setPassword("");
         e.preventDefault();

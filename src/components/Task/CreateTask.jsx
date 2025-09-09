@@ -20,7 +20,7 @@ const CreateTask = () => {
                                 id="task-title"
                                 name="task-title"
                                 type="text"
-                                placeholder="Make a UI design"
+                                placeholder="Give a task"
                                 className="mt-1 w-full rounded-xl border border-neutral-300 bg-white px-4 py-2 text-neutral-900 placeholder:text-neutral-400 focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 dark:border-neutral-700 dark:bg-neutral-800 dark:text-neutral-100"
                             />
                         </div>
