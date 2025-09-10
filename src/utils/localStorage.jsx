@@ -1,6 +1,7 @@
 const employees = [
     {
         id: 1,
+        firstName: "Amit",
         email: "employee1@example.com",
         password: "1234",
         tasks: [
@@ -26,9 +27,16 @@ const employees = [
                 category: "Development",
             },
         ],
+        taskSummary: {
+            activeTasks: 1,
+            completedTasks: 1,
+            failedTasks: 0,
+            newTasks: 1,
+        },
     },
     {
         id: 2,
+        firstName: "Neha",
         email: "employee2@example.com",
         password: "1234",
         tasks: [
@@ -54,9 +62,16 @@ const employees = [
                 category: "Bugfix",
             },
         ],
+        taskSummary: {
+            activeTasks: 1,
+            completedTasks: 0,
+            failedTasks: 1,
+            newTasks: 1,
+        },
     },
     {
         id: 3,
+        firstName: "Ramesh",
         email: "employee3@example.com",
         password: "1234",
         tasks: [
@@ -71,9 +86,16 @@ const employees = [
                 category: "Database",
             },
         ],
+        taskSummary: {
+            activeTasks: 1,
+            completedTasks: 0,
+            failedTasks: 0,
+            newTasks: 1,
+        },
     },
     {
         id: 4,
+        firstName: "Priya",
         email: "employee4@example.com",
         password: "1234",
         tasks: [
@@ -88,9 +110,16 @@ const employees = [
                 category: "Frontend",
             },
         ],
+        taskSummary: {
+            activeTasks: 0,
+            completedTasks: 1,
+            failedTasks: 0,
+            newTasks: 0,
+        },
     },
     {
         id: 5,
+        firstName: "Krishna",
         email: "employee5@example.com",
         password: "1234",
         tasks: [
@@ -105,9 +134,16 @@ const employees = [
                 category: "Testing",
             },
         ],
+        taskSummary: {
+            activeTasks: 1,
+            completedTasks: 0,
+            failedTasks: 0,
+            newTasks: 1,
+        },
     },
     {
         id: 6,
+        firstName: "Ganesh",
         email: "employee6@example.com",
         password: "1234",
         tasks: [
@@ -132,9 +168,16 @@ const employees = [
                 category: "Operations",
             },
         ],
+        taskSummary: {
+            activeTasks: 1,
+            completedTasks: 1,
+            failedTasks: 0,
+            newTasks: 1,
+        },
     },
     {
         id: 7,
+        firstName: "Gopal",
         email: "employee7@example.com",
         password: "1234",
         tasks: [
@@ -159,12 +202,19 @@ const employees = [
                 category: "Marketing",
             },
         ],
+        taskSummary: {
+            activeTasks: 1,
+            completedTasks: 0,
+            failedTasks: 1,
+            newTasks: 1,
+        },
     },
 ];
 
 const admins = [
     {
         id: 101,
+        firstName: "mahesh",
         email: "admin@example.com",
         password: "1234",
     },
