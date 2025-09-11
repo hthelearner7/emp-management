@@ -1,6 +1,6 @@
-const NewTask = ({ task }) => {
+const CompletedTask = ({ task }) => {
     return (
-        <div className="shrink-0 md:w-[30%] bg-green-400 rounded-xl p-6 flex flex-col justify-around">
+        <div className="shrink-0 md:w-[30%] bg-blue-400 rounded-xl p-6 flex flex-col justify-around">
             <div className="flex flex-col justify-between md:flex-row">
                 <div className="w-2/3 md:w-auto flex flex-col gap-2 justify-around">
                     <span className="bg-violet-400 px-2 rounded">
@@ -22,13 +22,13 @@ const NewTask = ({ task }) => {
                 <h2 className="text-2xl font-bold">{task?.title}</h2>
                 <p>{task?.description}</p>
             </div>
-            <div className="mt-2 flex justify-between">
-                <button className=" rounded-lg bg-green-500 px-4 py-1">
-                    Accept Task
+            <div className="mt-2">
+                <button className="rounded-lg w-full bg-blue-500 px-4 py-1">
+                    Mark as Completed
                 </button>
             </div>
         </div>
     );
 };
 
-export default NewTask;
+export default CompletedTask;

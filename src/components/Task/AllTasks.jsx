@@ -1,4 +1,6 @@
-const AllTasks = () => {
+const AllTasks = ({ data }) => {
+    console.log("alltasks", data);
+
     return (
         <div className="rounded bg-gray-700 p-4 space-y-4">
             <h1 className="text-center text-2xl font-semibold mb-6">

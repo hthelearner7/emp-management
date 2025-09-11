@@ -12,7 +12,7 @@ const Login = ({ handleLogin }) => {
     };
 
     return (
-        <div className="text-xs md:text-md lg:text-lg bg-gray-800 text-white h-screen w-screen flex flex-col justify-center items-center ">
+        <div className="text-md bg-gray-800 text-white h-screen w-screen flex flex-col justify-center items-center ">
             <div className="border-2 border-yellow-500 h-2/3 w-2/3 rounded-2xl">
                 <div className="border-b-2 border-yellow-600 h-1/7 text-center text-xl p-2 text-yellow-400">
                     Login Page
