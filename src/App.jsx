@@ -11,13 +11,29 @@ const App = () => {
     const [loggedInUserData, setLoggedInUserData] = useState(null);
     const authData = useContext(AuthContext);
     useEffect(() => {
-        setLocalStorage();
-        if (authData) {
-            const loggedInUser = JSON.parse(
-                localStorage?.getItem("loggedInUser")
-            );
-            setUser(loggedInUser?.role);
+        // setLocalStorage();
+        // console.log("hello");
+
+        const loggedInUser = localStorage.getItem("loggedInUser");
+        console.log("loggedin", loggedInUser);
+
+        if (loggedInUser) {
+            // alert("hello");
+            const userData = JSON.parse(loggedInUser);
+            console.log(loggedInUser);
+            console.log("h2");
+
+            console.log("loggedInUser => ", loggedInUser);
+            console.log("userData => ", userData);
+
+            setUser({ role: userData?.role });
+            setLoggedInUserData(userData?.data);
+        } else {
+            console.log("else block");
         }
+    }, []);
+    useEffect(() => {
+        console.log("useEffect triggered");
     }, []);
 
     const handleLogin = (email, password) => {
@@ -37,9 +53,9 @@ const App = () => {
                 setUser({ role: "admins" });
                 localStorage.setItem(
                     "loggedInUser",
-                    JSON.stringify({ role: "admins" })
+                    JSON.stringify({ role: "admins", data: admin })
                 );
-                setLoggedInUserData(admin);
+                // setLoggedInUserData(admin);
 
                 console.log(user);
             }
@@ -56,9 +72,9 @@ const App = () => {
                 setUser({ role: "employees" });
                 localStorage.setItem(
                     "loggedInUser",
-                    JSON.stringify({ role: "employees" })
+                    JSON.stringify({ role: "employees", data: employee })
                 );
-                setLoggedInUserData(employee);
+                // setLoggedInUserData(employee);
                 console.log(user);
             }
         } else {
