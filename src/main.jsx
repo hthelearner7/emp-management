@@ -4,7 +4,7 @@ import "./index.css";
 import App from "./App.jsx";
 import AuthProvider from "./context/AuthProvider.jsx";
 
-localStorage.clear();
+// localStorage.clear();
 createRoot(document.getElementById("root")).render(
     // <StrictMode>
     <AuthProvider>

@@ -6,28 +6,49 @@ const CreateTask = () => {
     const [date, setDate] = useState(new Date());
     const [assignTo, setAssignTo] = useState("");
     const [category, setCategory] = useState("");
-
-    const [task, setTask] = useState([]);
+    const [empId, setEmpId] = useState("");
+    const [newTask, setNewTask] = useState([]);
+    const [taskPriority, setTaskPriority] = useState("");
     const submitHandler = (e) => {
         e.preventDefault();
         console.log("form s", title, description, date, assignTo, category);
-        setTitle("");
-        setDescription("");
-        setDate("");
-        setCategory("");
-        setAssignTo("");
-        setTask({
+
+        setNewTask({
             taskTitle: title,
             taskDescription: description,
-            date: date,
-            assignTo,
             taskCategory: category,
+            taskPriority,
+            date: date,
             active: false,
             newTask: true,
             completedTask: false,
             failedTask: false,
         });
+
+        // set task in localstorage
+        const data = JSON.parse(localStorage.getItem("employees"));
+        data.forEach((element) => {
+            console.log(element.firstName);
+            if (
+                element.firstName.toLowerCase() == assignTo.toLowerCase() &&
+                element.id == empId
+            ) {
+                console.log("found user");
+                element.tasks.push(newTask);
+                data.push(element);
+                console.log(element);
+                localStorage.setItem("employees", JSON.stringify(data));
+            }
+        });
+
+        setTitle("");
+        setDescription("");
+        setDate("");
+        setCategory("");
+        setAssignTo("");
+        setEmpId("");
     };
+    console.log(newTask);
 
     return (
         <div>
@@ -63,6 +84,31 @@ const CreateTask = () => {
                         <div>
                             <label
                                 className="block text-sm font-medium text-neutral-700 dark:text-neutral-300"
+                                htmlFor="task-priority"
+                            >
+                                Task Priority{" "}
+                                <span className="text-red-500">*</span>
+                            </label>
+                            <select
+                                id="task-priority"
+                                name="task-priority"
+                                required
+                                value={taskPriority}
+                                onChange={(e) =>
+                                    setTaskPriority(e.target.value)
+                                }
+                                className="mt-1 w-full rounded-xl border border-neutral-300 bg-white px-4 py-2 text-neutral-900 focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 dark:border-neutral-700 dark:bg-neutral-800 dark:text-neutral-100"
+                            >
+                                <option value="">-- Select Priority --</option>
+                                <option value="low">Low</option>
+                                <option value="medium">Medium</option>
+                                <option value="high">High</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label
+                                className="block text-sm font-medium text-neutral-700 dark:text-neutral-300"
                                 htmlFor="date"
                             >
                                 Date
@@ -73,25 +119,43 @@ const CreateTask = () => {
                                 type="date"
                                 value={date}
                                 onChange={(e) => setDate(e.target.value)}
-                                className="mt-1 w-full rounded-xl border border-neutral-300 bg-white px-4 py-2 text-neutral-900 focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 dark:border-neutral-700 dark:bg-neutral-800 dark:text-neutral-100"
+                                className="mt-1 w-[40%] rounded-xl border border-neutral-300 bg-white px-4 py-2 text-neutral-900 focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 dark:border-neutral-700 dark:bg-neutral-800 dark:text-neutral-100"
                             />
                         </div>
 
                         <div>
                             <label
                                 className="block text-sm font-medium text-neutral-700 dark:text-neutral-300"
-                                htmlFor="assign-to"
+                                htmlFor="assign-to-name"
                             >
-                                Assign to
+                                Assign to (NAME)
                             </label>
                             <input
-                                id="assign-to"
-                                name="assign-to"
+                                id="assign-to-name"
+                                name="assign-to-name"
                                 type="text"
                                 value={assignTo}
                                 onChange={(e) => setAssignTo(e.target.value)}
                                 placeholder="Assignee name"
                                 className="mt-1 w-full rounded-xl border border-neutral-300 bg-white px-4 py-2 text-neutral-900 placeholder:text-neutral-400 focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 dark:border-neutral-700 dark:bg-neutral-800 dark:text-neutral-100"
+                            />
+                        </div>
+
+                        <div>
+                            <label
+                                className="block text-sm font-medium text-neutral-700 dark:text-neutral-300"
+                                htmlFor="assign-to-emp-id"
+                            >
+                                Assign to (EMPLOYEE ID)
+                            </label>
+                            <input
+                                id="assign-to-emp-id"
+                                name="assign-to-epm-id"
+                                type="text"
+                                value={empId}
+                                onChange={(e) => setEmpId(e.target.value)}
+                                placeholder="Assignee EMP ID"
+                                className="mt-1 w-[50%] rounded-xl border border-neutral-300 bg-white px-4 py-2 text-neutral-900 placeholder:text-neutral-400 focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 dark:border-neutral-700 dark:bg-neutral-800 dark:text-neutral-100"
                             />
                         </div>
 
