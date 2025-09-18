@@ -1,7 +1,40 @@
+import { useState } from "react";
+
 const CreateTask = () => {
+    const [title, setTitle] = useState("");
+    const [description, setDescription] = useState("");
+    const [date, setDate] = useState(new Date());
+    const [assignTo, setAssignTo] = useState("");
+    const [category, setCategory] = useState("");
+
+    const [task, setTask] = useState([]);
+    const submitHandler = (e) => {
+        e.preventDefault();
+        console.log("form s", title, description, date, assignTo, category);
+        setTitle("");
+        setDescription("");
+        setDate("");
+        setCategory("");
+        setAssignTo("");
+        setTask({
+            taskTitle: title,
+            taskDescription: description,
+            date: date,
+            assignTo,
+            taskCategory: category,
+            active: false,
+            newTask: true,
+            completedTask: false,
+            failedTask: false,
+        });
+    };
+
     return (
         <div>
-            <form className="max-w-full mx-auto rounded-2xl bg-white shadow p-6 md:p-8 dark:bg-neutral-900">
+            <form
+                onSubmit={submitHandler}
+                className="max-w-full mx-auto rounded-2xl bg-white shadow p-6 md:p-8 dark:bg-neutral-900"
+            >
                 <h2 className="text-xl font-semibold text-neutral-900 dark:text-neutral-100">
                     Create Task
                 </h2>
@@ -21,6 +54,8 @@ const CreateTask = () => {
                                 name="task-title"
                                 type="text"
                                 placeholder="Give a task"
+                                value={title}
+                                onChange={(e) => setTitle(e.target.value)}
                                 className="mt-1 w-full rounded-xl border border-neutral-300 bg-white px-4 py-2 text-neutral-900 placeholder:text-neutral-400 focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 dark:border-neutral-700 dark:bg-neutral-800 dark:text-neutral-100"
                             />
                         </div>
@@ -36,6 +71,8 @@ const CreateTask = () => {
                                 id="date"
                                 name="date"
                                 type="date"
+                                value={date}
+                                onChange={(e) => setDate(e.target.value)}
                                 className="mt-1 w-full rounded-xl border border-neutral-300 bg-white px-4 py-2 text-neutral-900 focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 dark:border-neutral-700 dark:bg-neutral-800 dark:text-neutral-100"
                             />
                         </div>
@@ -51,6 +88,8 @@ const CreateTask = () => {
                                 id="assign-to"
                                 name="assign-to"
                                 type="text"
+                                value={assignTo}
+                                onChange={(e) => setAssignTo(e.target.value)}
                                 placeholder="Assignee name"
                                 className="mt-1 w-full rounded-xl border border-neutral-300 bg-white px-4 py-2 text-neutral-900 placeholder:text-neutral-400 focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 dark:border-neutral-700 dark:bg-neutral-800 dark:text-neutral-100"
                             />
@@ -67,6 +106,8 @@ const CreateTask = () => {
                                 id="category"
                                 name="category"
                                 type="text"
+                                value={category}
+                                onChange={(e) => setCategory(e.target.value)}
                                 placeholder="Category"
                                 className="mt-1 w-full rounded-xl border border-neutral-300 bg-white px-4 py-2 text-neutral-900 placeholder:text-neutral-400 focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 dark:border-neutral-700 dark:bg-neutral-800 dark:text-neutral-100"
                             />
@@ -86,6 +127,8 @@ const CreateTask = () => {
                             name="description"
                             rows={10}
                             placeholder="Enter description here"
+                            value={description}
+                            onChange={(e) => setDescription(e.target.value)}
                             className="flex-1 mt-1 rounded-xl border border-neutral-300 bg-white px-4 py-3 text-neutral-900 placeholder:text-neutral-400 focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 dark:border-neutral-700 dark:bg-neutral-800 dark:text-neutral-100"
                         />
 
