@@ -5,7 +5,8 @@ const AllTasks = ({ data }) => {
     console.log("alltasks", data);
 
     const authData = useContext(AuthContext);
-    console.log(authData);
+    const { userData, setEmployeeUserData } = authData;
+    console.log("authdata", authData);
 
     return (
         <div className="rounded bg-gray-900 p-4 space-y-4">
@@ -34,7 +35,7 @@ const AllTasks = ({ data }) => {
                         </tr>
                     </thead>
                     <tbody>
-                        {authData?.employeesData?.map((el, idx) => (
+                        {userData?.employeesData?.map((el, idx) => (
                             <tr key={idx}>
                                 <td className="border border-white px-4 py-2">
                                     {el.firstName}

@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { AuthContext } from "../../context/AuthProvider";
 
 const CreateTask = () => {
     const [title, setTitle] = useState("");
@@ -7,26 +8,19 @@ const CreateTask = () => {
     const [assignTo, setAssignTo] = useState("");
     const [category, setCategory] = useState("");
     const [empId, setEmpId] = useState("");
-    const [newTask, setNewTask] = useState([]);
+    const newTask = [];
     const [taskPriority, setTaskPriority] = useState("");
+    const authData = useContext(AuthContext);
+    const { userData, setEmployeeUserData } = authData;
+    console.log("ud", userData);
+
     const submitHandler = (e) => {
         e.preventDefault();
         console.log("form s", title, description, date, assignTo, category);
 
-        setNewTask({
-            taskTitle: title,
-            taskDescription: description,
-            taskCategory: category,
-            taskPriority,
-            date: date,
-            active: false,
-            newTask: true,
-            completedTask: false,
-            failedTask: false,
-        });
+        const data = userData?.employeesData;
+        console.log("d", data);
 
-        // set task in localstorage
-        const data = JSON.parse(localStorage.getItem("employees"));
         data.forEach((element) => {
             console.log(element.firstName);
             if (
@@ -34,21 +28,40 @@ const CreateTask = () => {
                 element.id == empId
             ) {
                 console.log("found user");
-                element.tasks.push(newTask);
-                data.push(element);
+                if (newTask)
+                    element.tasks.push({
+                        title,
+                        description,
+                        category,
+                        taskPriority,
+                        date,
+                        active: false,
+                        newTask: true,
+                        completedTask: false,
+                        failedTask: false,
+                    });
+                element.taskSummary.newTasks++;
+
                 console.log(element);
+                setEmployeeUserData(userData.employees, data);
+                console.log("data => ", data);
+
                 localStorage.setItem("employees", JSON.stringify(data));
+                clearFormData();
             }
         });
+    };
+    console.log(newTask);
 
+    const clearFormData = () => {
         setTitle("");
         setDescription("");
         setDate("");
         setCategory("");
         setAssignTo("");
         setEmpId("");
+        setTaskPriority("");
     };
-    console.log(newTask);
 
     return (
         <div>
@@ -207,6 +220,14 @@ const CreateTask = () => {
                     </section>
                 </div>
             </form>
+            <div className="flex justify-center">
+                <button
+                    className="mt-5 flex justify-center items-center rounded-xl bg-green-600 px-5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 w-1/2"
+                    onClick={clearFormData}
+                >
+                    Clear Form Data
+                </button>
+            </div>
         </div>
     );
 };

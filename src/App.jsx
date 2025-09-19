@@ -9,7 +9,8 @@ import { AuthContext } from "./context/AuthProvider";
 const App = () => {
     const [user, setUser] = useState(null);
     const [loggedInUserData, setLoggedInUserData] = useState(null);
-    const authData = useContext(AuthContext);
+    const authData = useContext(AuthContext).userData;
+
     useEffect(() => {
         // setLocalStorage();
         // console.log("hello");
@@ -35,9 +36,6 @@ const App = () => {
             console.log("else block");
         }
     }, []);
-    useEffect(() => {
-        console.log(loggedInUserData, user);
-    }, [loggedInUserData]);
 
     const handleLogin = (email, password) => {
         // console.log(email, password);
