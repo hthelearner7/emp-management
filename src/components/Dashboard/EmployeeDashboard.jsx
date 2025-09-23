@@ -3,7 +3,7 @@ import TaskList from "../TaskList/TaskList";
 import TaskListNumbers from "../TaskListNumbers/TaskListNumbers";
 
 const EmployeeDashboard = (props) => {
-    console.log(props);
+    // console.log(props);
 
     return (
         <div className="h-screen text-white">

@@ -2,11 +2,11 @@ import { useContext } from "react";
 import { AuthContext } from "../../context/AuthProvider";
 
 const AllTasks = ({ data }) => {
-    console.log("alltasks", data);
+    // console.log("alltasks", data);
 
     const authData = useContext(AuthContext);
-    const { userData, setEmployeeUserData } = authData;
-    console.log("authdata", authData);
+    const { userData } = authData;
+    // console.log("authdata", authData);
 
     return (
         <div className="rounded bg-gray-900 p-4 space-y-4">

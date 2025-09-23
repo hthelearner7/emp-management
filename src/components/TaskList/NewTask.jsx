@@ -10,7 +10,7 @@ const NewTask = ({ task }) => {
         event.preventDefault();
         try {
             const user = JSON.parse(localStorage.getItem("loggedInUser"));
-            console.log("user, ", user.data.taskSummary);
+            // console.log("user, ", user.data.taskSummary);
 
             const task = user.data.tasks.find((t) => t.taskId === taskId);
             if (task) {
@@ -21,11 +21,11 @@ const NewTask = ({ task }) => {
                 user.data.taskSummary.newTasks =
                     user.data.taskSummary.newTasks - 1;
                 localStorage.setItem("loggedInUser", JSON.stringify(user));
-                alert("done");
+                // alert("done");
             }
             const employeesData = userData?.employeesData || [];
-            console.log("ed", employeesData);
-            console.log("user.data", user.data);
+            // console.log("ed", employeesData);
+            // console.log("user.data", user.data);
 
             const updatedEmployees = employeesData.map((emp) =>
                 emp.firstName.toLowerCase() ===
@@ -36,9 +36,9 @@ const NewTask = ({ task }) => {
             // update state and employees in localStorage
             setEmployeeUserData(userData, updatedEmployees);
             localStorage.setItem("employees", JSON.stringify(updatedEmployees));
-            console.log("update", updatedEmployees);
+            // console.log("update", updatedEmployees);
 
-            alert("done");
+            // alert("done");
         } catch (error) {
             console.log("err => ", error.message);
         }

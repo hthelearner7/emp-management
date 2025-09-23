@@ -27,18 +27,16 @@ const App = () => {
             // alert("hello");
             const userData = JSON.parse(loggedInUser);
 
-            console.log(loggedInUser);
-            console.log("h2");
+            // console.log(loggedInUser);
+            // console.log("h2");
 
-            console.log("loggedInUser => ", loggedInUser);
-            console.log("userData => ", userData);
+            // console.log("loggedInUser => ", loggedInUser);
+            // console.log("userData => ", userData);
 
             setUser(userData?.role);
             setLoggedInUserData(userData?.data);
-            console.log(user);
-            console.log(loggedInUserData);
-        } else {
-            console.log("else block");
+            // console.log(user);
+            // console.log(loggedInUserData);
         }
     }, []);
 
@@ -50,7 +48,7 @@ const App = () => {
                 (admn) => admn.email == email && admn.password == password
             )
         ) {
-            console.log(authData);
+            // console.log(authData);
 
             const admin = authData.adminsData.find(
                 (admn) => admn.email == email && admn.password == password
@@ -63,7 +61,7 @@ const App = () => {
                 );
                 // setLoggedInUserData(admin);
 
-                console.log(user);
+                // console.log(user);
             }
         } else if (authData) {
             const employee = authData.employeesData.find(
@@ -76,10 +74,10 @@ const App = () => {
                     "loggedInUser",
                     JSON.stringify({ role: "employees", data: employee })
                 );
-                console.log(user);
+                // console.log(user);
             }
         } else {
-            console.log("invalid credentials");
+            // console.log("invalid credentials");
             alert("invalid credentials");
         }
     };

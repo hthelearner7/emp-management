@@ -16,17 +16,17 @@ const CreateTask = () => {
 
     const submitHandler = (e) => {
         e.preventDefault();
-        console.log("form s", title, description, date, assignTo, category);
+        // console.log("form s", title, description, date, assignTo, category);
 
         const data = userData?.employeesData;
-        console.log("d", data);
+        // console.log("d", data);
         data.forEach((element) => {
-            console.log(element.firstName);
+            // console.log(element.firstName);
             if (
                 element.firstName.toLowerCase() == assignTo.toLowerCase() &&
                 element.id == empId
             ) {
-                console.log("found user");
+                // console.log("found user");
                 if (newTask)
                     element.tasks.push({
                         taskId:
@@ -46,9 +46,9 @@ const CreateTask = () => {
                     });
                 element.taskSummary.newTasks++;
 
-                console.log(element);
+                // console.log(element);
                 setEmployeeUserData(userData.employees, data);
-                console.log("data => ", data);
+                // console.log("data => ", data);
 
                 localStorage.setItem("employees", JSON.stringify(data));
                 clearFormData();
