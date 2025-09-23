@@ -1,4 +1,49 @@
+import { useContext } from "react";
+import { AuthContext } from "../../context/AuthProvider";
+
 const NewTask = ({ task }) => {
+    const authData = useContext(AuthContext);
+
+    const { userData, setEmployeeUserData } = authData;
+
+    const handleAcceptTask = (event, taskId) => {
+        event.preventDefault();
+        try {
+            const user = JSON.parse(localStorage.getItem("loggedInUser"));
+            console.log("user, ", user.data.taskSummary);
+
+            const task = user.data.tasks.find((t) => t.taskId === taskId);
+            if (task) {
+                task.active = true;
+                task.newTask = false;
+                user.data.taskSummary.activeTasks =
+                    user.data.taskSummary.activeTasks + 1;
+                user.data.taskSummary.newTasks =
+                    user.data.taskSummary.newTasks - 1;
+                localStorage.setItem("loggedInUser", JSON.stringify(user));
+                alert("done");
+            }
+            const employeesData = userData?.employeesData || [];
+            console.log("ed", employeesData);
+            console.log("user.data", user.data);
+
+            const updatedEmployees = employeesData.map((emp) =>
+                emp.firstName.toLowerCase() ===
+                    user.data.firstName.toLowerCase() && emp.id === user.data.id
+                    ? { ...user.data } // replace with updated user data
+                    : emp
+            );
+            // update state and employees in localStorage
+            setEmployeeUserData(userData, updatedEmployees);
+            localStorage.setItem("employees", JSON.stringify(updatedEmployees));
+            console.log("update", updatedEmployees);
+
+            alert("done");
+        } catch (error) {
+            console.log("err => ", error.message);
+        }
+    };
+
     return (
         <div className="shrink-0 md:w-[30%] bg-green-400 rounded-xl p-6 flex flex-col justify-around">
             <div className="flex flex-col justify-between md:flex-row">
@@ -23,7 +68,10 @@ const NewTask = ({ task }) => {
                 <p>{task?.description}</p>
             </div>
             <div className="mt-2 flex justify-between">
-                <button className=" rounded-lg bg-green-500 px-4 py-1">
+                <button
+                    onClick={(event) => handleAcceptTask(event, task?.taskId)}
+                    className=" rounded-lg bg-green-500 px-4 py-1"
+                >
                     Accept Task
                 </button>
             </div>

@@ -20,7 +20,6 @@ const CreateTask = () => {
 
         const data = userData?.employeesData;
         console.log("d", data);
-
         data.forEach((element) => {
             console.log(element.firstName);
             if (
@@ -30,6 +29,11 @@ const CreateTask = () => {
                 console.log("found user");
                 if (newTask)
                     element.tasks.push({
+                        taskId:
+                            "emp" +
+                            empId +
+                            "-task" +
+                            (element.tasks.length + 1),
                         title,
                         description,
                         category,

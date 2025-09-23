@@ -12,7 +12,12 @@ const App = () => {
     const authData = useContext(AuthContext).userData;
 
     useEffect(() => {
-        // setLocalStorage();
+        if (
+            !localStorage.getItem("admins") ||
+            !localStorage.getItem("employees")
+        ) {
+            setLocalStorage();
+        }
         // console.log("hello");
 
         const loggedInUser = localStorage.getItem("loggedInUser");
