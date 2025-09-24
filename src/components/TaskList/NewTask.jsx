@@ -37,6 +37,7 @@ const NewTask = ({ task }) => {
             setEmployeeUserData(userData, updatedEmployees);
             localStorage.setItem("employees", JSON.stringify(updatedEmployees));
             // console.log("update", updatedEmployees);
+            window.location.reload();
 
             // alert("done");
         } catch (error) {

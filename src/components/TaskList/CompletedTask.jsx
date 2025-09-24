@@ -39,6 +39,7 @@ const CompletedTask = ({ task }) => {
             // console.log("update", updatedEmployees);
 
             // alert("done");
+            window.location.reload();
         } catch (error) {
             console.log("err => ", error.message);
         }

@@ -39,6 +39,7 @@ const AcceptTask = ({ task }) => {
             // console.log("update", updatedEmployees);
 
             // alert("done");
+            window.location.reload();
         } catch (error) {
             console.log("err => ", error.message);
         }
@@ -51,6 +52,7 @@ const AcceptTask = ({ task }) => {
             // console.log("user, ", user.data.taskSummary);
 
             const task = user.data.tasks.find((t) => t.taskId === taskId);
+
             if (task) {
                 task.active = false;
                 task.failed = true;
@@ -74,6 +76,7 @@ const AcceptTask = ({ task }) => {
             // update state and employees in localStorage
             setEmployeeUserData(userData, updatedEmployees);
             localStorage.setItem("employees", JSON.stringify(updatedEmployees));
+            window.location.reload();
             // console.log("update", updatedEmployees);
 
             // alert("done");

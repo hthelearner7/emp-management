@@ -163,7 +163,7 @@ const CreateTask = () => {
                                 className="block text-sm font-medium text-neutral-700 dark:text-neutral-300"
                                 htmlFor="assign-to-emp-id"
                             >
-                                Assign to (EMPLOYEE ID)
+                                Assign to (ID) e.g. 1, 2, 3, 4
                             </label>
                             <input
                                 id="assign-to-emp-id"
