@@ -1,3 +1,5 @@
+import IdCardModal from "../IdCard/IdCardModal";
+
 const Header = (props) => {
     const { data, changeUser } = props;
     const logOutUser = () => {
@@ -13,6 +15,7 @@ const Header = (props) => {
                     {data?.firstName?.toUpperCase()} 😃
                 </span>
             </h1>
+            <IdCardModal />
             <button
                 className="bg-red-400 rounded-md px-2 h-12 w-24 font-medium"
                 onClick={logOutUser}

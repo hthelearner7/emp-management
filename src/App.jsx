@@ -21,7 +21,6 @@ const App = () => {
         // console.log("hello");
 
         const loggedInUser = localStorage.getItem("loggedInUser");
-        console.log("loggedin", loggedInUser);
 
         if (loggedInUser) {
             // alert("hello");

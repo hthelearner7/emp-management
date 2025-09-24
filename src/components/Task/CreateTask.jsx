@@ -12,7 +12,7 @@ const CreateTask = () => {
     const [taskPriority, setTaskPriority] = useState("");
     const authData = useContext(AuthContext);
     const { userData, setEmployeeUserData } = authData;
-    console.log("ud", userData);
+    // console.log("ud", userData);
 
     const submitHandler = (e) => {
         e.preventDefault();
@@ -55,7 +55,7 @@ const CreateTask = () => {
             }
         });
     };
-    console.log(newTask);
+    // console.log(newTask);
 
     const clearFormData = () => {
         setTitle("");
