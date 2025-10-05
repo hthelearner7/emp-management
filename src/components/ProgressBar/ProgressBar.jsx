@@ -81,7 +81,7 @@ const ProgressBar = () => {
     const percentage = total > 0 ? Math.round((completed / total) * 100) : 0;
 
     return (
-        <div className="w-full px-6 py-4 bg-gray-800">
+        <div className="w-[45%] px-6 py-4 bg-gray-800">
             <div className="max-w-3xl mx-auto bg-white shadow-md rounded-xl p-6">
                 <h2 className="text-xl font-semibold text-gray-800 mb-4">
                     Employee Progress
