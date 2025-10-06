@@ -60,7 +60,7 @@ const Notes = () => {
     };
 
     return (
-        <div className="relative">
+        <div className="relative m-4">
             {!showForm ? (
                 <button
                     onClick={() => setShowForm(true)}
