@@ -1,3 +1,4 @@
+import Calendar from "../Calendar/Calender";
 import Header from "../Header/Header";
 import AllNotes from "../Notes/AllNotes";
 import Notes from "../Notes/Notes";
@@ -11,6 +12,7 @@ const EmployeeDashboard = (props) => {
     return (
         <div className="h-screen text-white">
             <Header changeUser={props.changeUser} data={props.data} />
+            <Calendar />
             <div className="flex justify-between items-center">
                 <ProgressBar />
                 <Notes />
