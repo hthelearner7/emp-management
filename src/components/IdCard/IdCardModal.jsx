@@ -12,12 +12,9 @@ const IdCardModal = () => {
             {/* Trigger Button (ID card icon) */}
             <button
                 onClick={openModal}
-                className="p-2 rounded-full hover:bg-gray-100 text-gray-700 text-4xl "
+                className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md h-18"
             >
-                🆔
-                <span className="hover:text-black text-xl text-white">
-                    Check ID Card
-                </span>
+                🆔Check ID Card
             </button>
 
             {/* Modal */}
