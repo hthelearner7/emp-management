@@ -1,5 +1,6 @@
 import { useContext, useState } from "react";
 import { AuthContext } from "../../context/AuthProvider";
+import ColorPickerBar from "./ColorPicker";
 
 const Notes = () => {
     const [showForm, setShowForm] = useState(false);
@@ -7,6 +8,7 @@ const Notes = () => {
     const [description, setDescription] = useState("");
     const authData = useContext(AuthContext);
     const { userData, setEmployeeUserData } = authData;
+    const [selectedColor, setSelectedColor] = useState("#FDE68A");
 
     const empData = JSON.parse(localStorage.getItem("loggedInUser"));
 
@@ -21,6 +23,7 @@ const Notes = () => {
                 noteId: noteIdPrefix + ((empData.data.notes?.length || 0) + 1),
                 title,
                 description,
+                textColor: selectedColor,
                 date: new Date(),
             };
 
@@ -49,6 +52,7 @@ const Notes = () => {
             setTitle("");
             setDescription("");
             setShowForm(false);
+            window.location.reload();
         } catch (error) {
             console.log("Error:", error);
             alert("Some issue in creating note");
@@ -94,6 +98,10 @@ const Notes = () => {
                         className="block w-full mb-3 px-3 py-2 rounded "
                         style={{ color: "white" }}
                     ></textarea>
+                    <ColorPickerBar
+                        selectedColor={selectedColor}
+                        setSelectedColor={setSelectedColor}
+                    />
 
                     <div className="flex justify-between items-center">
                         <button
