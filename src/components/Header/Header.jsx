@@ -1,10 +1,12 @@
 import { useState } from "react";
 import IdCardModal from "../IdCard/IdCardModal";
 import AllAnnouncements from "../Announcements/AllAnnouncements";
+import Calendar from "../Calendar/Calender";
 
 const Header = (props) => {
     const { data, changeUser } = props;
     const [showAnnouncements, setShowAnnouncements] = useState(false);
+    const [showCalendar, setShowCalendar] = useState(false);
 
     const logOutUser = () => {
         localStorage.setItem("loggedInUser", null);
@@ -57,6 +59,29 @@ const Header = (props) => {
                         </div>
                     )}
                 </>
+            )}
+
+            <button
+                onClick={() => setShowCalendar(true)}
+                className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+            >
+                📅 Open Calendar
+            </button>
+
+            {/* Modal */}
+            {showCalendar && (
+                <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
+                    <div className="bg-gray-900 p-4 rounded shadow-lg w-[90%] max-w-3xl relative">
+                        <button
+                            onClick={() => setShowCalendar(false)}
+                            className="absolute top-2 right-2 text-xl font-bold"
+                        >
+                            &times;
+                        </button>
+
+                        <Calendar />
+                    </div>
+                </div>
             )}
 
             <button

@@ -12,7 +12,6 @@ const EmployeeDashboard = (props) => {
     return (
         <div className="h-screen text-white">
             <Header changeUser={props.changeUser} data={props.data} />
-            <Calendar />
             <div className="flex justify-between items-center">
                 <ProgressBar />
                 <Notes />

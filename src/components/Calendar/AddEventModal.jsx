@@ -44,13 +44,13 @@ const AddEventModal = ({ date, onClose, onSave }) => {
                 ></textarea>
                 <button
                     onClick={handleSave}
-                    className="bg-green-400 px-4 py-2 rounded mr-2"
+                    className="bg-green-400 px-4 py-2 rounded mr-2 text-bold text-lg"
                 >
                     Save
                 </button>
                 <button
                     onClick={onClose}
-                    className="bg-gray-300 px-4 py-2 rounded"
+                    className="bg-gray-900 px-4 py-2 rounded text-red-800 text-bold text-lg"
                 >
                     Cancel
                 </button>

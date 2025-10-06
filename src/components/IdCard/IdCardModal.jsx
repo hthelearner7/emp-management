@@ -14,7 +14,7 @@ const IdCardModal = () => {
                 onClick={openModal}
                 className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md h-18"
             >
-                🆔Check ID Card
+                🆔 ID Card
             </button>
 
             {/* Modal */}
