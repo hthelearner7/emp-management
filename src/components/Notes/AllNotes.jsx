@@ -61,7 +61,7 @@ const AllNotes = () => {
     };
 
     return (
-        <div className="w-full mt-4">
+        <div className="w-full mt-4 p-2">
             <h2 className="text-xl font-semibold text-gray-800 dark:text-gray-100 mb-3">
                 Your Notes
             </h2>
