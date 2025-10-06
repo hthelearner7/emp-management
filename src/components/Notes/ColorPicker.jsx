@@ -17,7 +17,7 @@ const ColorPickerBar = ({ selectedColor, setSelectedColor }) => {
                     style={{ backgroundColor: color }}
                     className={`w-8 h-8 rounded-full cursor-pointer hover:outline-solid outline-blue-500 ${
                         selectedColor === color
-                            ? "border-blue-800 border-2 "
+                            ? "border-blue-900 border-4"
                             : ""
                     }`}
                 />

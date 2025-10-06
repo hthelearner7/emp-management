@@ -122,7 +122,7 @@ const Calendar = () => {
                                     )}-${String(day).padStart(2, "0")}`
                                 )
                             }
-                            className="border p-2 h-20 cursor-pointer relative hover:bg-gray-100 rounded"
+                            className="border p-2 h-20 cursor-pointer relative hover:bg-gray-100 rounded  hover:text-gray-700 hover:border-black border-1 hover:border-2"
                         >
                             <div className="font-medium">{day}</div>
                             {dayEvents.length > 0 && (

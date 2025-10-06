@@ -70,15 +70,23 @@ const Header = (props) => {
 
             {/* Modal */}
             {showCalendar && (
-                <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
-                    <div className="bg-gray-900 p-4 rounded shadow-lg w-[90%] max-w-3xl relative">
+                <div
+                    className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50"
+                    onClick={() => setShowCalendar(false)} // Close when clicking outside
+                >
+                    <div
+                        className="bg-gray-900 p-6 rounded shadow-lg w-[90%] max-w-3xl relative overflow-auto max-h-[90vh]"
+                        onClick={(e) => e.stopPropagation()} // Prevent closing when clicking inside modal
+                    >
+                        {/* Close button */}
                         <button
                             onClick={() => setShowCalendar(false)}
-                            className="absolute top-2 right-2 text-xl font-bold"
+                            className="absolute top-2 right-2 text-4xl font-bold text-red-400 hover:text-red-800"
                         >
                             &times;
                         </button>
 
+                        {/* Calendar content */}
                         <Calendar />
                     </div>
                 </div>
