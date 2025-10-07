@@ -18,43 +18,39 @@ const AddEventModal = ({ date, onClose, onSave }) => {
     };
 
     return (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
-            <div className="bg-white dark:bg-gray-800 p-6 rounded-xl w-[90%] max-w-md relative">
-                <button
-                    onClick={onClose}
-                    className="absolute top-2 right-2 text-xl font-bold"
-                >
-                    ×
-                </button>
-                <h2 className="text-xl font-semibold mb-4">
-                    Add Event: {date}
-                </h2>
-                <input
-                    type="text"
-                    placeholder="Title"
-                    value={title}
-                    onChange={(e) => setTitle(e.target.value)}
-                    className="w-full p-2 mb-2 border rounded"
-                />
-                <textarea
-                    placeholder="Description"
-                    value={description}
-                    onChange={(e) => setDescription(e.target.value)}
-                    className="w-full p-2 mb-4 border rounded"
-                ></textarea>
-                <button
-                    onClick={handleSave}
-                    className="bg-green-400 px-4 py-2 rounded mr-2 text-bold text-lg"
-                >
-                    Save
-                </button>
-                <button
-                    onClick={onClose}
-                    className="bg-gray-900 px-4 py-2 rounded text-red-800 text-bold text-lg"
-                >
-                    Cancel
-                </button>
-            </div>
+        <div className="bg-white dark:bg-gray-800 p-6 rounded-xl w-1/3  relative border-2">
+            <button
+                onClick={onClose}
+                className="absolute top-2 right-2 text-xl font-bold"
+            >
+                ×
+            </button>
+            <h2 className="text-xl font-semibold mb-4">Add Event: {date}</h2>
+            <input
+                type="text"
+                placeholder="Title"
+                value={title}
+                onChange={(e) => setTitle(e.target.value)}
+                className="w-full p-2 mb-2 border rounded"
+            />
+            <textarea
+                placeholder="Description"
+                value={description}
+                onChange={(e) => setDescription(e.target.value)}
+                className="w-full p-2 mb-4 border rounded"
+            ></textarea>
+            <button
+                onClick={handleSave}
+                className="bg-green-400 px-4 py-2 rounded mr-2 text-bold text-lg"
+            >
+                Save
+            </button>
+            <button
+                onClick={onClose}
+                className="bg-gray-900 px-4 py-2 rounded text-red-800 text-bold text-lg"
+            >
+                Cancel
+            </button>
         </div>
     );
 };
