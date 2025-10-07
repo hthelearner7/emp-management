@@ -7,6 +7,7 @@ const Header = (props) => {
     const { data, changeUser } = props;
     const [showAnnouncements, setShowAnnouncements] = useState(false);
     const [showCalendar, setShowCalendar] = useState(false);
+    // console.log(data);
 
     const logOutUser = () => {
         localStorage.setItem("loggedInUser", null);
@@ -61,12 +62,14 @@ const Header = (props) => {
                 </>
             )}
 
-            <button
-                onClick={() => setShowCalendar(true)}
-                className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
-            >
-                📅 Open Calendar
-            </button>
+            {data?.role === "Employee" && (
+                <button
+                    onClick={() => setShowCalendar(true)}
+                    className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+                >
+                    📅 Open Calendar
+                </button>
+            )}
 
             {/* Modal */}
             {showCalendar && (
