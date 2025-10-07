@@ -67,6 +67,19 @@ const Calendar = () => {
     const numDays = daysInMonth(year, month);
     const firstDay = firstDayOfMonth(year, month);
 
+    const editEvent = (updatedEvent) => {
+        const updatedEvents = events.map((e) =>
+            e.id === updatedEvent.id ? updatedEvent : e
+        );
+        saveEvents(updatedEvents);
+    };
+
+    const deleteEvent = (eventId) => {
+        if (!window.confirm("Delete this event?")) return;
+        const updatedEvents = events.filter((e) => e.id !== eventId);
+        saveEvents(updatedEvents);
+    };
+
     const monthEvents = (day) => {
         const dateStr = `${year}-${String(month + 1).padStart(2, "0")}-${String(
             day
@@ -173,6 +186,8 @@ const Calendar = () => {
                     <AllEventsOnDate
                         selectedDate={selectedDate}
                         events={events}
+                        onEdit={editEvent}
+                        onDelete={deleteEvent}
                     />
                 </div>
             )}

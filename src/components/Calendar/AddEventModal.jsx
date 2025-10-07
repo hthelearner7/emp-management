@@ -18,7 +18,7 @@ const AddEventModal = ({ date, onClose, onSave }) => {
     };
 
     return (
-        <div className="bg-white dark:bg-gray-800 p-6 rounded-xl w-1/3  relative border-2">
+        <div className="bg-white dark:bg-gray-800 p-6 rounded-xl w-1/2  relative border-2">
             <button
                 onClick={onClose}
                 className="absolute top-2 right-2 text-xl font-bold"
